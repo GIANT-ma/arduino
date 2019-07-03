@@ -1,0 +1,41 @@
+#include<string.h>
+#include<Morse.h>
+Morse Morse(13);
+String letters[26]={
+// A to I
+".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..",
+// J to R 
+".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.",
+// S to Z
+"...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.." 
+};
+
+String a = "";
+void setup()
+{
+    Serial.begin(9600);
+}
+void loop()
+{
+    while (Serial.available() > 0)  
+    {
+        a+= char(Serial.read());
+        delay(2);
+    }
+    String b="";
+int n;
+int m;
+n=a.length();
+for (int x=0;x<n;x++)
+   {
+    if (a[x]>=97&&a[x]<=122)
+      { m=int(a[x]-97);
+        b+=letters[m];
+        }
+   }
+    if (a.length() > 0)
+    {
+        Serial.println(a);
+      a= "";
+    }
+}
