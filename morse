@@ -31,6 +31,19 @@ for (int x=0;x<n;x++)
     if (a[x]>=97&&a[x]<=122)
       { m=int(a[x]-97);
         b+=letters[m];
+        for(int k=0,k<=4,k++)
+            {
+             if letters[m][k]=="."
+             {
+                dot();
+                break;
+             }
+             if letters[m][k]=="-"
+             {
+             dash;
+             break;
+             }
+            }
         }
    }
     if (a.length() > 0)
